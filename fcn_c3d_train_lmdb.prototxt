@@ -7,7 +7,7 @@ layer {
   python_param {
     module: "C3DImageNetInputLMDBLayer"
     layer: "C3DImageNetInputLMDBLayer"
-    param_str: "{\'lmdb_addr\': '/home/jacques/phdwork/temps_data/imagenet_lmdb/ilsvrc12_train_lmdb', \'batch_size\': 5, \'mean\': (120.0, 120.0, 120.0), \'new_H\': 112, \'new_W\': 112}"
+    param_str: "{\'lmdb_addr\': '/data/jacques_use/vgg_imagenet/ilsvrc12_train_lmdb',\'batch_size\': 32, \'mean\': (120.0, 120.0, 120.0), \'new_H\': 112, \'new_W\': 112}"
   }
 }
 layer {
@@ -448,7 +448,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 34
+    num_output: 1000
     pad: 0
     pad: 0
     pad: 0

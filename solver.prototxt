@@ -3,18 +3,15 @@ display: 5
 average_loss: 20
 lr_policy: "multistep"
 # lr for unnormalized softmax
-base_lr: 1e-5 
+base_lr: 1e-4 
 # high momentum
-stepvalue: 2975 # 1
-stepvalue: 5950 # 2
-stepvalue: 11900 # 4
-stepvalue: 47600 # 16
-stepvalue: 100000
-gamma: 0.2
+stepvalue: 150000 # 8
+stepvalue: 300000 # 16
+stepvalue: 450000 # 4
+gamma: 0.1
 momentum: 0.99
 # no gradient accumulation
 iter_size: 1
-max_iter: 300000
 weight_decay: 0.0005
-snapshot: 3000
+snapshot: 100000
 snapshot_prefix: "snapshot/train"

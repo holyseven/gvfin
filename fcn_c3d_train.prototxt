@@ -448,7 +448,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 34
+    num_output: 1000
     pad: 0
     pad: 0
     pad: 0

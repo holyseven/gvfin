@@ -29,7 +29,7 @@ interp_layers = [k for k in solver.net.params.keys() if 'up' in k]
 surgery.interp(solver.net, interp_layers)
 
 
-for _ in range(1):
-    solver.step(100)
+for _ in range(30):
+    solver.step(37500)
 
 
