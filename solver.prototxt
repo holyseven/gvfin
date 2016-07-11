@@ -1,0 +1,20 @@
+train_net: "fcn_c3d_train_lmdb.prototxt"
+display: 5
+average_loss: 20
+lr_policy: "multistep"
+# lr for unnormalized softmax
+base_lr: 1e-5 
+# high momentum
+stepvalue: 2975 # 1
+stepvalue: 5950 # 2
+stepvalue: 11900 # 4
+stepvalue: 47600 # 16
+stepvalue: 100000
+gamma: 0.2
+momentum: 0.99
+# no gradient accumulation
+iter_size: 1
+max_iter: 300000
+weight_decay: 0.0005
+snapshot: 3000
+snapshot_prefix: "snapshot/train"
