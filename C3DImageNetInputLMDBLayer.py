@@ -47,6 +47,10 @@ class C3DImageNetInputLMDBLayer(caffe.Layer):
         self.lmdb_txn = self.lmdb_env.begin()
         self.lmdb_cursor = self.lmdb_txn.cursor()
         self.datum = caffe.proto.caffe_pb2.Datum()
+        for _ in range(37500*32):
+            self.lmdb_cursor.next()
+            if _ % 10 == 0:
+                print _
 
     def reshape(self, bottom, top):
         n = self.batch_size
@@ -84,7 +88,7 @@ class C3DImageNetInputLMDBLayer(caffe.Layer):
 
     def load_video_and_label(self, idx):
         if not self.lmdb_cursor.next():
-            self.lmdb_cursor.next()
+            self.lmdb_cursor.first()
 
         key, value = self.lmdb_cursor.item()
         self.datum.ParseFromString(value)

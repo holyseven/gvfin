@@ -7,7 +7,7 @@ layer {
   python_param {
     module: "C3DImageNetInputLayer"
     layer: "C3DImageNetInputLayer"
-    param_str: "{\'imagelist\': \'./data_address/imagenet_train.txt\', \'batch_size\': 5, \'mean\': (120.0, 120.0, 120.0), \'new_H\': 112, \'new_W\': 112, \'crop\': True}"
+    param_str: "{\'imagelist\': \'./data_address/imagenet_train.txt\', \'batch_size\': 8, \'mean\': (120.0, 120.0, 120.0), \'new_H\': 112, \'new_W\': 112, \'crop\': True}"
   }
 }
 layer {

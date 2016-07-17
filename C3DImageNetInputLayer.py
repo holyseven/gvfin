@@ -75,8 +75,8 @@ class C3DImageNetInputLayer(caffe.Layer):
             top[1].reshape(*self.label.shape)
 
 
-        print self.data.shape
-        print self.label.shape
+        #print self.data.shape
+        #print self.label.shape
 
 
     def forward(self, bottom, top):
@@ -113,6 +113,10 @@ class C3DImageNetInputLayer(caffe.Layer):
     def generate_16_images(self, idx):
         results = [None] * 16
         im = Image.open(self.imageindices[idx])
+
+        if im.mode == 'L':
+            im = im.convert('RGB')
+        
         #print str(idx) + '_' + self.imageindices[idx]
         if self.new_W == 0 or self.new_H == 0:
             raise Exception("error parameters input new_W or new_H...")
