@@ -1,4 +1,4 @@
-train_net: "fcn_c3d_train_lmdb.prototxt"
+train_net: "fcn_c3d_train.prototxt"
 display: 5
 average_loss: 20
 lr_policy: "multistep"

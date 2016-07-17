@@ -27,7 +27,6 @@ class C3DImageNetInputLayer(caffe.Layer):
         # config
         params = eval(self.param_str)
         self.imagelist = params['imagelist']
-        self.labellist = params['labellist']
         self.mean = np.array(params['mean'])
         self.random = params.get('randomize', True)
         self.seed = params.get('seed', None)
@@ -42,10 +41,15 @@ class C3DImageNetInputLayer(caffe.Layer):
             raise Exception("Do not define a bottom.")
         
         # load address of images and labels
-        self.imageindices = open(self.imagelist, 'r').read().splitlines()
-        self.labelindices = open(self.labellist, 'r').read().splitlines()
-        if len(self.imageindices) != len(self.labelindices):
-            raise Exception("Images and labels should pair.")
+        data_lines = open(self.imagelist, 'r').read().splitlines()
+        
+        self.imageindices = [None] * len(data_lines)
+        self.labelindices = [None] * len(data_lines)
+
+        for i in range(len(data_lines)):
+            line = data_lines[i].split(' ')
+            self.imageindices[i] = line[0]
+            self.labelindices[i] = line[1]
 
         self.idx = 0
         # random
